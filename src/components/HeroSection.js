@@ -16,7 +16,7 @@ export default function HeroSection() {
       <Navbar />
 
       {/* HERO CONTENT */}
-      <main className="font-reddit-sans flex-1 relative top-8 sm:top-20 flex flex-col items-center justify-center text-center px-4 w-full max-w-5xl mx-auto z-20 pb-20 md:pb-40 lg:pb-[280px] 2xl:pb-72">
+      <main className=" flex-1 relative top-8 sm:top-20 flex flex-col items-center justify-center text-center px-4 w-full max-w-5xl mx-auto z-20 pb-20 md:pb-40 lg:pb-[280px] 2xl:pb-72">
         
         {/* ANIMATED HEADING */}
         <motion.h1 
@@ -24,10 +24,10 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           // Starts fading in exactly as the loading screen pulls away
           transition={{ duration: 0.8, ease: "easeOut", delay: INITIAL_DELAY }}
-          className="text-5xl lg:relative lg:bottom-25 font-[300] md:text-[54px] lg:text-[62px] 2xl:text-[84px] tracking-tight leading-[1.05] mb-6 2xl:mb-8 text-black transition-all duration-300"
+          className="text-5xl font-reddit-sans lg:relative lg:bottom-25 font-light md:text-[54px] lg:text-[62px] 2xl:text-[84px] tracking-tight leading-[1.05] mb-6 2xl:mb-8 text-black transition-all duration-300"
         >
           Leadership <br />
-          Changes <span className="text-[#9564F4] italic font-serif tracking-normal font-light">everything.</span>
+          Changes <span className="text-[#9564F4] font-tartuffo font-light italic tracking-normal">everything.</span>
         </motion.h1>
 
         {/* ANIMATED PARAGRAPH */}
@@ -36,7 +36,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           // Staggered slightly after the heading (3.0s + 0.2s)
           transition={{ duration: 0.8, ease: "easeOut", delay: INITIAL_DELAY + 0.2 }}
-          className="text-[14px] lg:relative lg:bottom-25 font-outfit font-[400] md:text-[15px] lg:text-[16px] 2xl:text-[21px] max-w-[540px] lg:max-w-[600px] 2xl:max-w-[800px] text-black leading-[1.1] mx-auto transition-all duration-300"
+          className="text-[14px] lg:relative lg:bottom-25 font-outfit font-normal md:text-[15px] lg:text-[16px] 2xl:text-[21px] max-w-[540px] lg:max-w-[600px] 2xl:max-w-[800px] text-black leading-[1.1] mx-auto transition-all duration-300"
         >
           We partner with organisations and leaders to attract, <br className="hidden sm:inline" />
           assess and support exceptional leadership <br className="hidden sm:inline" />

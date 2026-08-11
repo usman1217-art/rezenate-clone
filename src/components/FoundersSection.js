@@ -47,7 +47,7 @@ export default function FoundersSection() {
         {/* SECTION HEADER */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-0.5">
           <h2 className="font-readex-pro font-light text-[28px] sm:text-4xl md:text-[36px] lg:text-[42px] tracking-tight text-neutral-900 leading-[1.15] mb-3 sm:mb-4">
-            The <span className="text-[#9564F4] italic font-serif tracking-normal font-light">founders</span>
+            The <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">founders</span>
           </h2>
           <p className="text-[14px] font-outfit sm:text-[15px] md:text-[16px] text-neutral-800 font-medium tracking-wide max-w-[700px] mx-auto px-2">
             Rezenate is founder-led. We believe that leadership can be both strong and kind.

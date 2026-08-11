@@ -9,7 +9,7 @@
   --font-reddit-sans: var(--font-reddit-sans), sans-serif;
   --font-readex-pro: var(--font-readex-pro), sans-serif;
   --font-mulish: var(--font-mulish), sans-serif;
-  /* --font-tartuffo: var(--font-tartuffo), serif; -- uncomment once font files are added */
+  --font-tartuffo: var(--font-tartuffo), serif; 
 }
 
 @layer base {

@@ -85,11 +85,11 @@ export default function PartnerSection() {
         <div id="how-we-partner" className="text-center mb-10 lg:mb-8">
           <h2 className="text-3xl font-readex-pro md:text-[38px] lg:text-[42px] font-light tracking-tight text-black leading-[1.15] mb-4 sm:mb-6">
             How We{" "}
-            <span className="text-[#9564F4] italic font-serif tracking-normal font-light">
+            <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">
               partner
             </span>
           </h2>
-          <p className="text-[14px] font-outfit sm:text-[15px] md:text-[16px] text-neutral-900 font-light leading-relaxed max-w-[640px] mx-auto px-2">
+          <p className="text-[14px] font-outfit sm:text-[15px] md:text-[16px] text-black font-light leading-[1.2] max-w-[640px] mx-auto px-2">
             We partner with founders and boards to introduce leaders who
             strengthen culture and build momentum without losing what makes the
             company human.
@@ -166,7 +166,7 @@ export default function PartnerSection() {
                     </div>
 
                     {/* Description Sentence */}
-                    <div className="flex-1 font-outfit text-[12px] sm:text-[14.5px] md:text-[16px] text-neutral-800 font-medium text-left pr-6 sm:pr-4 line-clamp-2 sm:line-clamp-none">
+                    <div className="flex-1 font-outfit text-[12px] sm:text-[14.5px] md:text-[16px] text-black font-light text-left pr-6 sm:pr-4 line-clamp-2 sm:line-clamp-none">
                       {stage.desc}
                     </div>
 

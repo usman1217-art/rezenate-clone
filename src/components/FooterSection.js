@@ -54,7 +54,8 @@ export default function FooterSection() {
       {/* ========================================= */}
       {/* PURPLE GRADIENT BACKGROUND CONTAINER */}
       {/* ========================================= */}
-      <div className="relative w-full min-h-[540px] sm:min-h-[580px] md:min-h-[740px] flex items-center justify-center px-6 sm:px-8 pt-1 pb-24">
+      {/* FIX: Removed pt-1 to ensure no inner top spacing */}
+      <div className="relative w-full min-h-[540px] sm:min-h-[580px] md:min-h-[740px] flex items-center justify-center px-6 sm:px-8 pt-0 pb-24">
         
         {/* Background Image Asset */}
         <div className="absolute inset-0 z-0">
@@ -66,8 +67,7 @@ export default function FooterSection() {
           />
         </div>
 
-        {/* Top Edge Blur Mask */}
-        <div className="absolute top-0 left-0 w-full h-36 md:h-56 bg-gradient-to-b from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        {/* FIX: The white Top Edge Blur Mask that was creating the gap has been completely removed from here. */}
 
         {/* ========================================= */}
         {/* CARD + ARROWS WRAPPER (Pure Show-Up Animation - No Up/Down Shift) */}
@@ -155,10 +155,10 @@ export default function FooterSection() {
 
             {/* Card content */}
             <div className="relative z-10">
-              <h2 className="font-readex-pro text-[28px] sm:text-[34px] md:text-[38px] font-light tracking-tight text-neutral-900 leading-tight mb-4 sm:mb-5">
-                Lead The <span className="italic font-serif font-light">way.</span>
+              <h2 className="font-readex-pro text-[28px] sm:text-[34px] md:text-[38px] font-light tracking-tight text-black leading-tight mb-2 sm:mb-1.5">
+                Lead The <span className="italic font-tartuffo font-light">way.</span>
               </h2>
-              <p className="font-outfit text-[13px] sm:text-[14px] md:text-[15px] text-neutral-800 font-medium max-w-[420px] mx-auto">
+              <p className="font-outfit text-[13px] leading-tight sm:text-[14px] md:text-[17px] text-black font-normal max-w-[480px] mx-auto">
                 10% of every retainer supports a cause our clients care about. We also make a matching donation to a charity chosen by their new leader, because good business should always leave the world better than it found it.
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function FooterSection() {
         {/* ========================================= */}
         <div className="absolute bottom-0 left-0 right-0 z-20 py-4 text-center bg-[#8B55EC]/80 border-t border-white/20">
           <p className="text-white text-[13px] font-outfit md:text-[18px] font-light tracking-wide">
-            © Rezenate 2026. All rights reserved.
+            © Rezenate 2025. All rights reserved.
           </p>
         </div>
 

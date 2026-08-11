@@ -60,9 +60,9 @@ export default function InfluenceSection() {
           transition={{ duration: 0.9, ease: "easeOut" }}
           className="grid-cols-1 md:col-span-1 lg:col-span-7 xl:col-span-5 flex flex-col justify-center text-left py-2 pr-4 sm:pr-12 md:pr-24 lg:pr-0"
         >
-          <h2 className="relative left-0 sm:left-10 md:left-20 font-readex-pro text-4xl md:text-[56px] lg:text-[40px] xl:text-[42px] lg:w-[500px] max-w-full z-40 font-light tracking-tight leading-[1.12] mb-8 md:mb-6 text-black transition-all duration-300">
+          <h2 className="relative left-0 sm:left-10 md:left-20 font-readex-pro text-4xl md:text-[56px] lg:text-[40px] xl:text-[42px] lg:w-[600px]  z-40 font-light tracking-tight leading-[1.12] mb-7 md:mb-6 text-black transition-all duration-300">
             Every Leader Influences A Culture Long Before They{' '}
-            <span className="text-[#9564F4] italic font-serif tracking-normal font-light">change a strategy.</span>
+            <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">change a strategy.</span>
           </h2> 
 
           <div className="font-outfit space-y-6 font-normal md:space-y-2.5 relative left-0 sm:left-10 md:left-20 text-[15px] md:text-[22px] text-black leading-[1.2] max-w-md transition-all duration-300">

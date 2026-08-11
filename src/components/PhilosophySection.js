@@ -90,9 +90,9 @@ export default function PhilosophySection() {
         {/* SECTION HEADER */}
         {/* ========================================= */}
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl font-readex-pro font-light md:text-[42px] relative top-14 lg:text-[46px] tracking-tight text-neutral-900 leading-[1.15]">
+          <h2 className="text-3xl font-readex-pro font-light md:text-[42px] relative top-14 lg:text-[42px] tracking-tight text-neutral-900 leading-[1.15]">
             The Way We Work Should Reflect <br />
-            <span className="text-[#9564F4] italic font-serif tracking-normal font-light">the way we live.</span>
+            <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">the way we live.</span>
           </h2>
         </div>
 
@@ -145,7 +145,7 @@ export default function PhilosophySection() {
                   </div>
                   
                   <div className="flex-1 mt-1 sm:mt-0 pr-6">
-                    <h4 className="text-[19px] font-readex-pro font-semibold text-black mb-1">{card.title}</h4>
+                    <h4 className="text-[19px] font-readex-pro font-normal text-black mb-1">{card.title}</h4>
                     <p className="text-[14px] font-mulish text-black leading-relaxed">
                       {card.desc}
                     </p>

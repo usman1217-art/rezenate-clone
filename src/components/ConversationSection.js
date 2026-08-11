@@ -110,7 +110,7 @@ export default function ConversationCTASection() {
             className="lg:relative lg:left-54 lg:top-25 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
           >
             Leadership Shapes The Way People Experience Work And{' '}
-            <span className="italic font-serif font-light text-[#9564F4]">
+            <span className="italic font-tartuffo font-light text-[#9564F4]">
               therefore life.
             </span>
           </motion.h2>
