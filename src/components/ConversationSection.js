@@ -1,51 +1,49 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import BlurDivider from '@/components/BlurDivider'; // Double check this path matches your project structure
+import BlurDivider from '@/components/BlurDivider';
 
 /* =========================================================
    ADJUSTMENT CONFIGURATION
    ========================================================= */
 const CONFIG = {
   // 1. LEFT BACKGROUND IMAGE
-  leftWash: 'absolute left-0 bottom-0 w-full sm:w-[95%] md:w-[85%] lg:w-[78%] xl:w-[72%] h-[75%] sm:h-[80%] md:h-[85%]',
+  leftWash: 'absolute left-0 bottom-0 w-full sm:w-[90%] md:w-[85%] lg:w-[78%] xl:w-[72%] h-[70%] sm:h-[80%] md:h-[85%]',
 
-  // 2. RIGHT BACKGROUND IMAGE
-  rightGraphic: 'hidden md:block absolute top-0 right-0 h-screen w-[44%] lg:w-[38%] xl:w-[80%]',
+  // 2. RIGHT BACKGROUND IMAGE (Desktop)
+  rightGraphic: 'hidden md:block absolute top-0 right-0 h-full w-[44%] lg:w-[38%] xl:w-[32%]',
 
   // 3. TOP-RIGHT SVG MASK
-  topMask: 'absolute -top-[380px] -right-[50px] w-[150%] md:w-[1111px] z-10 pointer-events-none',
+  topMask: 'absolute -top-[200px] sm:-top-[300px] md:-top-[380px] -right-[50px] w-[120%] md:w-[1111px] pointer-events-none z-0 opacity-80 md:opacity-100',
 
-  // 4. BOTTOM MASK (USING YOUR BlurDivider COMPONENT)
-  // Small height on purpose — this should read as an edge fade, not a wash up the page.
+  // 4. BOTTOM MASK
   bottomMaskPosition: 'absolute inset-x-0 bottom-0 h-12 md:h-16 z-10',
 };
 
 // Fade masks so the raster images blend into the white section background
-// instead of showing a hard rectangular edge. Radial, anchored at the
-// corner that's flush with the page edge, fading outward.
 const LEFT_WASH_MASK = 'radial-gradient(circle at 0% 100%, white 0%, white 25%, transparent 100%)';
 const RIGHT_GRAPHIC_MASK = 'radial-gradient(circle at 100% 0%, white 0%, white 25%, transparent 100%)';
 
 export default function ConversationCTASection() {
   return (
-    <section id="contact" className="relative mt-10 w-full bg-white overflow-hidden pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-36 lg:pt-16 lg:pb-65 lg:-mt-35 font-sans">
+    <section id="contact" className="relative mt-10 w-full bg-white overflow-hidden pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-36 lg:pt-16 lg:pb-64 font-sans">
 
       {/* ========================================= */}
       {/* LEFT SOFT PURPLE WASH (blur-em.png) */}
       {/* ========================================= */}
       <div className={`${CONFIG.leftWash} pointer-events-none select-none z-0`}>
         <div
-          className="relative w-[700px] h-full"
+          className="relative w-full max-w-[700px] h-full"
           style={{
             maskImage: LEFT_WASH_MASK,
             WebkitMaskImage: LEFT_WASH_MASK,
           }}
         >
           <Image
-            src="/blur-em.png"
-            alt=""
+            src="/blurr.png"
+            alt="Background wash left"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, 700px"
             className="object-contain object-left-bottom"
           />
         </div>
@@ -63,16 +61,17 @@ export default function ConversationCTASection() {
       >
         <Image
           src="/right.png"
-          alt=""
+          alt="Background graphic right"
           fill
-          className="object-contain object-right"
           priority
+          sizes="(max-width: 1024px) 44vw, 38vw"
+          className="object-contain object-right-top"
         />
       </div>
 
       {/* Mobile-only version of the right side graphic */}
       <div
-        className="md:hidden absolute -top-10 -right-20 w-[240px] h-[360px] opacity-70 pointer-events-none select-none z-0"
+        className="md:hidden absolute top-0 right-0 w-[200px] sm:w-[240px] h-[300px] sm:h-[360px] opacity-70 pointer-events-none select-none z-0"
         style={{
           maskImage: RIGHT_GRAPHIC_MASK,
           WebkitMaskImage: RIGHT_GRAPHIC_MASK,
@@ -80,9 +79,11 @@ export default function ConversationCTASection() {
       >
         <Image
           src="/right.png"
-          alt=""
+          alt="Background graphic right mobile"
           fill
-          className="object-contain object-right animate-pulse"
+          priority
+          sizes="240px"
+          className="object-contain object-right-top animate-pulse"
         />
       </div>
 
@@ -90,7 +91,7 @@ export default function ConversationCTASection() {
       {/* TOP RIGHT MASK SVG (Blends the upper edge) */}
       {/* ========================================= */}
       <div className={CONFIG.topMask}>
-        <svg width="1111" height="748" viewBox="0 0 1111 748" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="1111" height="748" viewBox="0 0 1111 748" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
           <g filter="url(#filter0_f_961_151)">
             <rect x="174.199" y="174.2" width="1312" height="399" fill="#FDFDFC"/>
           </g>
@@ -105,7 +106,7 @@ export default function ConversationCTASection() {
       </div>
 
       {/* ========================================= */}
-      {/* 🌟 BOTTOM EDGE MASK (USING BlurDivider) */}
+      {/* BOTTOM EDGE MASK (USING BlurDivider) */}
       {/* ========================================= */}
       <BlurDivider className={CONFIG.bottomMaskPosition} />
 
@@ -121,7 +122,7 @@ export default function ConversationCTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="lg:relative lg:left-54 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
+            className="lg:relative lg:left-12 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
           >
             Leadership Shapes The Way People Experience Work And{' '}
             <span className="italic font-serif font-light text-[#9564F4]">
@@ -135,7 +136,7 @@ export default function ConversationCTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 lg:relative lg:left-34 font-outfit sm:mt-3 text-[14px] sm:text-[15px] md:text-[17px] text-neutral-800 font-medium leading-relaxed"
+            className="mt-4 lg:relative lg:left-12 font-outfit sm:mt-3 text-[14px] sm:text-[15px] md:text-[17px] text-neutral-800 font-medium leading-relaxed"
           >
             If this resonates, let's have a conversation.
             <br className="hidden sm:block" />
@@ -152,7 +153,7 @@ export default function ConversationCTASection() {
           >
             <button
               type="button"
-              className="inline-flex font-outfit lg:relative lg:left-34 items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-[14px] sm:text-[15px] font-medium text-neutral-900 tracking-wide transition-colors duration-300 hover:bg-neutral-900 hover:text-white shadow-sm cursor-pointer"
+              className="inline-flex font-outfit lg:relative lg:left-12 items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-[14px] sm:text-[15px] font-medium text-neutral-900 tracking-wide transition-colors duration-300 hover:bg-neutral-900 hover:text-white shadow-sm cursor-pointer"
             >
               Start a Private Conversation
             </button>
