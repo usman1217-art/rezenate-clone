@@ -54,7 +54,7 @@ export default function FooterSection() {
       {/* ========================================= */}
       {/* PURPLE GRADIENT BACKGROUND CONTAINER */}
       {/* ========================================= */}
-      <div className="relative w-full min-h-[540px] sm:min-h-[580px] md:min-h-[740px] flex items-center justify-center px-6 sm:px-8 pt-2 pb-24">
+      <div className="relative w-full min-h-[540px] sm:min-h-[580px] md:min-h-[740px] flex items-center justify-center px-6 sm:px-8 pt-1 pb-24">
         
         {/* Background Image Asset */}
         <div className="absolute inset-0 z-0">

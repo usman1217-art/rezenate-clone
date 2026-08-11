@@ -28,7 +28,7 @@ const RIGHT_GRAPHIC_MASK = 'radial-gradient(circle at 100% 0%, black 0%, black 2
 
 export default function ConversationCTASection() {
   return (
-    <section id="contact" className="relative mt-10 w-full bg-white overflow-hidden pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-36 lg:pt-16 lg:pb-65 lg:-mt-35 font-sans">
+    <section id="contact" className="relative mt-10 w-full bg-white overflow-hidden pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-32 lg:pt-0 lg:pb-55 lg:-mt-20 font-sans">
 
       {/* ========================================= */}
       {/* LEFT SOFT PURPLE WASH (blur-em.png) */}
@@ -98,8 +98,8 @@ export default function ConversationCTASection() {
       {/* ========================================= */}
       {/* TEXT CONTENT & ANIMATIONS */}
       {/* ========================================= */}
-      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
-        <div className="max-w-[680px] text-center mx-auto md:mx-0 md:ml-[8%] lg:ml-[10%]">
+      <div className="relative  z-20 w-full max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+        <div className="max-w-[680px]  text-center mx-auto md:mx-0 md:ml-[8%] lg:ml-[10%]">
 
           {/* ANIMATED HEADING */}
           <motion.h2
@@ -107,7 +107,7 @@ export default function ConversationCTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="lg:relative lg:left-54 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
+            className="lg:relative lg:left-54 lg:top-25 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
           >
             Leadership Shapes The Way People Experience Work And{' '}
             <span className="italic font-serif font-light text-[#9564F4]">
@@ -121,7 +121,7 @@ export default function ConversationCTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 lg:relative lg:left-34 font-outfit sm:mt-3 text-[14px] sm:text-[15px] md:text-[17px] text-neutral-800 font-medium leading-relaxed"
+            className="mt-4 lg:relative lg:left-34 lg:top-25 font-outfit sm:mt-3 text-[14px] sm:text-[15px] md:text-[17px] text-neutral-800 font-medium leading-relaxed"
           >
             If this resonates, let's have a conversation.
             <br className="hidden sm:block" />
@@ -138,7 +138,7 @@ export default function ConversationCTASection() {
           >
             <button
               type="button"
-              className="inline-flex font-outfit lg:relative lg:left-34 items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-[14px] sm:text-[15px] font-medium text-neutral-900 tracking-wide transition-colors duration-300 hover:bg-neutral-900 hover:text-white shadow-sm cursor-pointer"
+              className="inline-flex font-outfit lg:relative lg:left-34 lg:top-25 items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-[14px] sm:text-[15px] font-medium text-neutral-900 tracking-wide transition-colors duration-300 hover:bg-neutral-900 hover:text-white shadow-sm cursor-pointer"
             >
               Start a Private Conversation
             </button>
