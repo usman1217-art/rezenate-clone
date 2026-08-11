@@ -58,9 +58,9 @@ export default function InfluenceSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center text-left py-2"
+          className="grid-cols-1 md:col-span-1 lg:col-span-7 xl:col-span-5 flex flex-col justify-center text-left py-2 pr-4 sm:pr-12 md:pr-24 lg:pr-0"
         >
-          <h2 className="relative left-0 sm:left-10 md:left-20 font-readex-pro text-4xl md:text-[56px] lg:text-[40px] lg:w-[500px] z-40 font-light tracking-tight leading-[1.12] mb-8 md:mb-6 text-black transition-all duration-300">
+          <h2 className="relative left-0 sm:left-10 md:left-20 font-readex-pro text-4xl md:text-[56px] lg:text-[40px] xl:text-[42px] lg:w-[500px] max-w-full z-40 font-light tracking-tight leading-[1.12] mb-8 md:mb-6 text-black transition-all duration-300">
             Every Leader Influences A Culture Long Before They{' '}
             <span className="text-[#9564F4] italic font-serif tracking-normal font-light">change a strategy.</span>
           </h2> 
@@ -72,15 +72,29 @@ export default function InfluenceSection() {
           </div>
         </motion.div>
 
-        {/* RIGHT COLUMN: EMPTY HOLDER SPACE FOR BALANCING COMPONENT POSITIONING */}
-        <div className="hidden lg:block lg:col-span-7 xl:col-span-7 pointer-events-none h-1" />
+        {/* RIGHT COLUMN: EMPTY HOLDER SPACE */}
+        <div className="hidden lg:block lg:col-span-5 xl:col-span-7 pointer-events-none h-1" />
       </div>
 
       {/* BACKGROUND GRAPHIC CONTAINER */}
       <div className="relative sm:absolute right-0 top-0 bottom-0 w-full sm:max-w-[50%] lg:max-w-[52%] xl:max-w-[55%] h-[350px] sm:h-full z-0 pointer-events-none mt-12 sm:mt-0">
-        <div className="relative w-full h-full">
+        
+        {/* ========================================= */}
+        {/* FIX: CSS MASK - LEFT, TOP, AND BOTTOM FADE */}
+        {/* ========================================= */}
+        <div 
+          className="relative w-full h-full"
+          style={{
+            // Gradient 1 (Y-axis): Fades at top (0-20%) and bottom (80-100%)
+            // Gradient 2 (X-axis): Fades at left (0-30%) but stays solid black all the way to the right (100%)
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to right, transparent 0%, black 30%, black 100%)',
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to right, transparent 0%, black 30%, black 100%)',
+            WebkitMaskComposite: 'source-in', // Intersects the two gradients together
+            maskComposite: 'intersect'
+          }}
+        >
           <Image
-            src="/side-img.svg"
+            src="/new-bg.png"
             alt="Abstract purple vertical glowing bars decoration"
             fill
             priority
@@ -89,7 +103,7 @@ export default function InfluenceSection() {
         </div>
 
         {/* ========================================= */}
-        {/* ANIMATED ARROW CLUSTER — FULLY PRESERVED */}
+        {/* ANIMATED ARROW CLUSTER */}
         {/* ========================================= */}
         <div
           className="hidden lg:block absolute lg:top-[220px] lg:left-[340px] xl:top-[300px] xl:left-[480px] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none select-none w-[50px] h-[50px] xl:w-[70px] xl:h-[70px]"
@@ -117,7 +131,7 @@ export default function InfluenceSection() {
             <circle cx="83.5" cy="83.5" r="42" fill="white" />
           </motion.svg>
 
-          {/* The three expanding arrows */}
+          {/* Expanding arrows */}
           {arrows.map((arrow, i) => {
             const keyframes = buildArrowKeyframes(arrow.appearStart, arrow.appearEnd);
 
@@ -168,7 +182,7 @@ export default function InfluenceSection() {
           </span>
         </motion.div>
       </div>
- 
+
       {/* ========================================= */}
       {/* DESKTOP QUOTE CARD */}
       {/* ========================================= */}
