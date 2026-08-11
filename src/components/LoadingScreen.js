@@ -180,7 +180,7 @@ export default function LoadingScreen() {
 
             {/* MOTTO TEXT */}
             <h2 className="text-[28px] sm:text-[32px] md:text-[38px] font-light text-black font-reddit-sans leading-tight mb-2 tracking-tight">
-              Lead The <span className="italic font-serif text-[#9564F4] font-light">way.</span>
+              Lead The <span className="italic font-tartuffo text-[#9564F4] font-light">way.</span>
             </h2>
             
             <p className="text-[14px] font-outfit sm:text-[15px] md:text-[17px] text-neutral-800 font-medium tracking-wide mb-8 max-w-[280px] sm:max-w-[360px]">
