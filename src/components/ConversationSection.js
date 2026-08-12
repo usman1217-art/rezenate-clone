@@ -1,150 +1,132 @@
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import BlurDivider from '@/components/BlurDivider'; // Double check this path matches your project structure
-
-/* =========================================================
-   ADJUSTMENT CONFIGURATION
-   ========================================================= */
-const CONFIG = {
-  // 1. LEFT BACKGROUND IMAGE
-  leftWash: 'absolute left-0 bottom-0 w-full sm:w-[95%] md:w-[85%] lg:w-[78%] xl:w-[72%] h-[75%] sm:h-[80%] md:h-[85%]',
-
-  // 2. RIGHT BACKGROUND IMAGE
-  rightGraphic: 'hidden md:block absolute top-0 right-0 h-screen w-[44%] lg:w-[38%] xl:w-[80%]',
-
-  // 3. TOP-RIGHT SVG MASK
-  topMask: 'absolute -top-[380px] -right-[50px] w-[150%] md:w-[1111px] z-10 pointer-events-none',
-
-  // 4. BOTTOM MASK (USING YOUR BlurDivider COMPONENT)
-  // Small height on purpose — this should read as an edge fade, not a wash up the page.
-  bottomMaskPosition: 'absolute inset-x-0 bottom-0 h-12 md:h-16 z-10',
-};
-
-// Fade masks so the raster images blend into the white section background
-// instead of showing a hard rectangular edge. Radial, anchored at the
-// corner that's flush with the page edge, fading outward.
-const LEFT_WASH_MASK = 'radial-gradient(circle at 0% 100%, black 0%, black 25%, transparent 100%)';
-const RIGHT_GRAPHIC_MASK = 'radial-gradient(circle at 100% 0%, black 0%, black 25%, transparent 100%)';
+// src/components/ConversationCTASection.js
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ConversationCTASection() {
   return (
-    <section id="contact" className="relative mt-10 w-full bg-white overflow-hidden pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-32 lg:pt-0 lg:pb-55 lg:-mt-20 font-sans">
+    <section
+      id="contact"
+      className="relative w-full overflow-hidden bg-white py-32 md:py-40"
+    >
+      {/* Lower-left ambient purple glow — radial mask fades every direction, no rectangle edges anywhere */}
+      <div
+        className="pointer-events-none absolute -bottom-40 -left-32 w-[750px] h-[650px] md:w-[950px] md:h-[800px]"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 70% 65% at 35% 65%, black 0%, black 35%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 65% at 35% 65%, black 0%, black 35%, transparent 80%)",
+        }}
+      >
+        <Image
+          src="/blurr.png"
+          alt=""
+          fill
+          priority
+          className="object-cover "
+        />
+      </div>
 
-      {/* ========================================= */}
-      {/* LEFT SOFT PURPLE WASH (blur-em.png) */}
-      {/* ========================================= */}
-      <div className={`${CONFIG.leftWash} pointer-events-none select-none z-0`}>
+      {/* White blur mask pasted over the bottom of the left glow, as provided */}
+      <svg
+        className="absolute pointer-events-none"
+        width="1920"
+        height="813"
+        viewBox="0 0 1920 843"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_f_269_122)">
+          <path d="M-407 189.3H2093V653.3H-407V189.3Z" fill="#FDFDFC" />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_269_122"
+            x="-596.3"
+            y="-0.000198364"
+            width="2878.6"
+            height="842.6"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="94.65"
+              result="effect1_foregroundBlur_269_122"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Right-side folded ribbon graphic — top, bottom, AND left edges all faded so no side of the box is a hard line */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-[520px] md:w-[420px] lg:w-[530px] overflow-hidden">
         <div
-          className="relative w-[700px] h-full"
+          className="relative w-full h-full"
           style={{
-            maskImage: LEFT_WASH_MASK,
-            WebkitMaskImage: LEFT_WASH_MASK,
+            maskImage: `
+              linear-gradient(to bottom, transparent 0%, black 18%, black 55%, transparent 100%),
+              linear-gradient(to right, transparent 0%, black 25%)
+            `,
+            WebkitMaskImage: `
+              linear-gradient(to bottom, transparent 0%, black 18%, black 55%, transparent 100%),
+              linear-gradient(to right, transparent 0%, black 25%)
+            `,
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
           }}
         >
           <Image
-            src="/blurr.png"
+            src="/right.png"
             alt=""
             fill
             priority
-            className="object-contain object-left-bottom"
+            className="object-cover object-left"
           />
         </div>
       </div>
 
-      {/* ========================================= */}
-      {/* RIGHT-SIDE GRAPHIC (right.png) */}
-      {/* ========================================= */}
-      <div
-        className={`${CONFIG.rightGraphic} pointer-events-none select-none z-0`}
-        style={{
-          maskImage: RIGHT_GRAPHIC_MASK,
-          WebkitMaskImage: RIGHT_GRAPHIC_MASK,
-        }}
-      >
-        <Image
-          src="/right.png"
-          alt=""
-          fill
-          className="object-contain object-right"
-          priority
-        />
-      </div>
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-4xl md:text-5xl leading-tight text-black"
+        >
+          Leadership Shapes The Way People Experience Work And{" "}
+          <span className="italic text-purple-500">therefore life.</span>
+        </motion.h2>
 
-      {/* Mobile version of the right side graphic completely removed/commented out here to hide it on smaller screens */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+          className="mt-6 text-base md:text-lg text-gray-600"
+        >
+          If this resonates, let&apos;s have a conversation.
+          <br />
+          We reply within a day — always personally.
+        </motion.p>
 
-      {/* ========================================= */}
-      {/* TOP RIGHT MASK SVG (Blends the upper edge) */}
-      {/* ========================================= */}
-      <div className={CONFIG.topMask}>
-        <svg width="1111" height="748" viewBox="0 0 1111 748" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g filter="url(#filter0_f_961_151)">
-            <rect x="174.199" y="174.2" width="1312" height="399" fill="#FDFDFC"/>
-          </g>
-          <defs>
-            <filter id="filter0_f_961_151" x="-0.000778198" y="0.000198364" width="1660.4" height="747.4" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-              <feGaussianBlur stdDeviation="87.1" result="effect1_foregroundBlur_961_151"/>
-            </filter>
-          </defs>
-        </svg>
-      </div>
-
-      {/* ========================================= */}
-      {/* 🌟 BOTTOM EDGE MASK (USING BlurDivider) */}
-      {/* ========================================= */}
-      <BlurDivider className={CONFIG.bottomMaskPosition} />
-
-      {/* ========================================= */}
-      {/* TEXT CONTENT & ANIMATIONS */}
-      {/* ========================================= */}
-      <div className="relative  z-20 w-full max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
-        <div className="max-w-[680px]  text-center mx-auto md:mx-0 md:ml-[8%] lg:ml-[10%]">
-
-          {/* ANIMATED HEADING */}
-          <motion.h2
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="lg:relative lg:left-54 lg:top-25 max-w-[520px] mx-auto md:mx-0 font-readex-pro text-[26px] sm:text-[36px] md:text-[42px] lg:text-[40px] font-light leading-[1.2] tracking-tight text-black"
-          >
-            Leadership Shapes The Way People Experience Work And{' '}
-            <span className="italic font-tartuffo font-light text-[#9564F4]">
-              therefore life.
-            </span>
-          </motion.h2>
-
-          {/* ANIMATED PARAGRAPH */}
-          <motion.p
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
-            className="mt-4 lg:relative lg:left-34 lg:top-25 font-outfit sm:mt-3 text-[14px] sm:text-[15px] md:text-[17px] text-neutral-800 font-medium leading-relaxed"
-          >
-            If this resonates, let's have a conversation.
-            <br className="hidden sm:block" />
-            {' '}We reply within a day — always personally.
-          </motion.p>
-
-          {/* ANIMATED BUTTON CONTAINER */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            className="mt-6 sm:mt-4"
-          >
-            <button
-              type="button"
-              className="inline-flex font-outfit lg:relative lg:left-34 lg:top-25 items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-[14px] sm:text-[15px] font-medium text-neutral-900 tracking-wide transition-colors duration-300 hover:bg-neutral-900 hover:text-white shadow-sm cursor-pointer"
-            >
-              Start a Private Conversation
-            </button>
-          </motion.div>
-
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+          className="mt-8"
+        >
+          <button className="rounded-full border border-purple-300 px-8 py-3 text-sm text-black hover:bg-purple-50 transition-colors">
+            Start a Private Conversation
+          </button>
+        </motion.div>
       </div>
     </section>
   );
