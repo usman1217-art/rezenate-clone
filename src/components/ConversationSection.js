@@ -6,14 +6,14 @@ export default function ConversationCTASection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-white py-32 md:py-40"
+      className="relative w-full overflow-hidden bg-white py-20 sm:py-24 md:py-32 lg:py-40"
     >
       {/* Lower-left ambient purple glow — radial mask fades every direction, no rectangle edges anywhere */}
       <div
-        className="pointer-events-none absolute -bottom-40 -left-32 w-[750px] h-[650px] md:w-[950px] md:h-[800px]"
+        className="pointer-events-none absolute -bottom-24 -left-20 w-[420px] h-[380px] sm:-bottom-32 sm:-left-28 sm:w-[600px] sm:h-[520px] md:-bottom-40 md:-left-32 md:w-[1100px] md:h-[900px]"
         style={{
           maskImage:
-            "radial-gradient(ellipse 70% 65% at 35% 65%, black 0%, black 35%, transparent 80%)",
+            "radial-gradient(ellipse 80% 65% at 35% 65%, black 0%, black 55%, transparent 80%)",
           WebkitMaskImage:
             "radial-gradient(ellipse 70% 65% at 35% 65%, black 0%, black 35%, transparent 80%)",
         }}
@@ -29,9 +29,7 @@ export default function ConversationCTASection() {
 
       {/* White blur mask pasted over the bottom of the left glow, as provided */}
       <svg
-        className="absolute pointer-events-none"
-        width="1920"
-        height="813"
+        className="absolute pointer-events-none w-[1200px] h-[508px] md:w-[1920px] md:h-[813px]"
         viewBox="0 0 1920 843"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +62,8 @@ export default function ConversationCTASection() {
         </defs>
       </svg>
 
-      {/* Right-side folded ribbon graphic — top, bottom, AND left edges all faded so no side of the box is a hard line */}
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-[520px] md:w-[420px] lg:w-[530px] overflow-hidden">
+      {/* Right-side folded ribbon graphic — hidden on mobile, top/bottom/left edges faded so no side is a hard line */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-[520px] hidden md:block md:w-[420px] lg:w-[430px] overflow-hidden">
         <div
           className="relative w-full h-full"
           style={{
@@ -92,16 +90,16 @@ export default function ConversationCTASection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+      <div className="relative font-readex-pro w-full sm:w-[90%] md:w-155 font-light z-10 mx-auto max-w-3xl px-4 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-4xl md:text-5xl leading-tight text-black"
+          className="text-3xl sm:text-4xl md:text-[42px] leading-[1.15] md:leading-[1.1] text-black"
         >
           Leadership Shapes The Way People Experience Work And{" "}
-          <span className="italic text-purple-500">therefore life.</span>
+          <span className="italic font-light font-tartuffo text-purple-500">therefore life.</span>
         </motion.h2>
 
         <motion.p
@@ -109,7 +107,7 @@ export default function ConversationCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="mt-6 text-base md:text-lg text-gray-600"
+          className="mt-3 md:mt-2 font-outfit text-sm leading-[1.1] sm:text-base md:text-lg text-black"
         >
           If this resonates, let&apos;s have a conversation.
           <br />
@@ -121,9 +119,9 @@ export default function ConversationCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-          className="mt-8"
+          className="mt-5 md:mt-3"
         >
-          <button className="rounded-full border border-purple-300 px-8 py-3 text-sm text-black hover:bg-purple-50 transition-colors">
+          <button className="rounded-full border border-black px-6 sm:px-8 py-2 font-outfit text-sm text-black hover:bg-black hover:text-white transition-all">
             Start a Private Conversation
           </button>
         </motion.div>

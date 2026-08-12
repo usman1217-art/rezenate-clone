@@ -49,7 +49,7 @@ function buildArrowKeyframes(appearStart, appearEnd) {
 
 export default function FooterSection() {
   return (
-    <footer className="relative w-full overflow-hidden font-sans">
+    <footer className="relative bottom-0 w-full overflow-hidden font-sans">
 
       {/* ========================================= */}
       {/* PURPLE GRADIENT BACKGROUND CONTAINER */}

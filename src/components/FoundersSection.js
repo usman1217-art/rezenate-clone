@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function FoundersSection() {
   return (
-    <section className="relative w-full bg-white pt-16 pb-16 sm:pt-20 sm:pb-24 md:pt-24 md:pb-32 lg:pt-28 lg:pb-40 overflow-hidden">
+    <section className="relative w-full bg-white pt-16 pb-2 sm:pt-20 sm:pb-0 md:pt-24 md:pb-3 lg:pt-28 lg:pb-3 overflow-hidden">
       
       {/* ========================================= */}
       {/* FULL WIDTH SCREEN BACKGROUND IMAGE WITH BLURRED EDGES */}
