@@ -83,13 +83,13 @@ export default function PartnerSection() {
       <div className="relative z-20 w-full max-w-[1100px] mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center">
         {/* Section Header */}
         <div id="how-we-partner" className="text-center mb-10 lg:mb-8">
-          <h2 className="text-3xl font-readex-pro md:text-[38px] lg:text-[42px] font-light tracking-tight text-black leading-[1.15] mb-4 sm:mb-6">
+          <h2 className="text-3xl font-readex-pro md:text-[38px] lg:text-[42px] font-light tracking-tight text-black leading-[1.15] mb-3 sm:mb-4">
             How We{" "}
             <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">
               partner
             </span>
           </h2>
-          <p className="text-[14px] font-outfit sm:text-[15px] md:text-[16px] text-black font-light leading-[1.2] max-w-[640px] mx-auto px-2">
+          <p className="text-[14.5px] font-outfit sm:text-[15.5px] md:text-[16.5px] text-black font-light leading-[1.2] max-w-[620px] mx-auto px-2">
             We partner with founders and boards to introduce leaders who
             strengthen culture and build momentum without losing what makes the
             company human.

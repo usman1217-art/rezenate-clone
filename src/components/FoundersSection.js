@@ -46,7 +46,7 @@ export default function FoundersSection() {
         
         {/* SECTION HEADER */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-0.5">
-          <h2 className="font-readex-pro font-light text-[28px] sm:text-4xl md:text-[36px] lg:text-[42px] tracking-tight text-neutral-900 leading-[1.15] mb-3 sm:mb-4">
+          <h2 className="font-readex-pro font-light text-[28px] sm:text-4xl md:text-[36px] lg:text-[42px] tracking-tight text-neutral-900 leading-[1.15] mb-3 sm:mb-3">
             The <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">founders</span>
           </h2>
           <p className="text-[14px] font-outfit sm:text-[15px] md:text-[16px] text-neutral-800 font-medium tracking-wide max-w-[700px] mx-auto px-2">
@@ -145,17 +145,17 @@ export default function FoundersSection() {
               />
             </div>
 
-            <h3 className="text-[16px] font-readex-pro sm:text-[18px] md:text-[21px] font-normal text-neutral-900 mb-2 md:mb-3 tracking-tight">
+            <h3 className="text-[16px] font-readex-pro sm:text-[18.5px] md:text-[23.5px] font-normal text-black mb-2 md:mb-3 tracking-tight">
               Zak — The Alchemist
             </h3>
 
-            <p className="text-[12px] font-outfit sm:text-[13px] md:text-[15px] font-bold text-neutral-900 leading-snug max-w-[250px] mb-2 md:mb-3 flex items-center justify-center min-h-[36px] md:min-h-[46px]">
+            <p className="text-[12px] font-outfit sm:text-[13px] md:text-[16px] font-semibold text-black leading-tight max-w-[290px] mb-2 md:mb-3 flex items-center justify-center min-h-[36px] md:min-h-[46px]">
               "Leadership begins with honesty and not hierarchy."
             </p>
 
             <div className="w-20 md:w-50 h-px bg-[#9564F4] mb-2 md:mb-4" />
 
-            <p className="text-[11px] font-outfit sm:text-[12.5px] md:text-[15px] text-neutral-900 font-medium leading-relaxed max-w-[240px]">
+            <p className="text-[11px] font-outfit sm:text-[12.5px] md:text-[17px] text-neutral-900 font-medium leading-tight max-w-[270px]">
               Zak brings clarity to who companies are, what they stand for, and who should lead them next.
             </p>
           </div>
@@ -179,17 +179,16 @@ export default function FoundersSection() {
               />
             </div>
 
-            <h3 className="text-[16px] font-readex-pro sm:text-[18px] md:text-[21px] font-normal text-neutral-900 mb-2 md:mb-3 tracking-tight">
+            <h3 className="text-[16px] font-readex-pro sm:text-[18.5px] md:text-[23.5px] font-normal text-neutral-900 mb-2 md:mb-3 tracking-tight">
               Chloe — The Architect
             </h3>
 
-            <p className="text-[12px] font-outfit sm:text-[13px] md:text-[15px] font-bold text-neutral-900 leading-snug max-w-[290px] mb-2 md:mb-3 flex items-center justify-center min-h-[36px] md:min-h-[46px]">
+            <p className="text-[12px] font-outfit sm:text-[13px] md:text-[16px] font-semibold text-black leading-tight max-w-[290px] mb-2 md:mb-3 flex items-center justify-center min-h-[36px] md:min-h-[46px]">
               "We built Rezenate to make leadership feel human again."
             </p>
+            <div className="w-20 md:w-50 h-px bg-[#9564F4] mb-2 md:mb-4" />
 
-            <div className="w-12 md:w-50 h-px bg-[#9564F4] mb-2 md:mb-4" />
-
-            <p className="text-[11px] font-outfit sm:text-[12.5px] md:text-[15px] text-neutral-900 font-medium leading-relaxed max-w-[290px]">
+             <p className="text-[11px] font-outfit sm:text-[12.5px] md:text-[17px] text-neutral-900 font-medium leading-tight w-[320px]">
               Chloe brings structure, psychology, and emotional intelligence to every engagement, ensuring great partnerships are built to last.
             </p>
           </div>

@@ -66,13 +66,13 @@ export default function PhilosophySection() {
       id: "02",
       title: "Wisdom",
       desc: "We make thoughtful decisions.",
-      alignClass: "lg:ml-20",
+      alignClass: "lg:ml-13",
     },
     {
       id: "03",
       title: "Rezolutionary",
       desc: "We believe everyone has the power to shape what happens next.",
-      alignClass: "lg:-ml-16",
+      alignClass: "lg:-ml-1",
     },
     {
       id: "04",
@@ -135,7 +135,7 @@ export default function PhilosophySection() {
           </div>
 
           {/* RIGHT COLUMN: Cards 1 to 4 */}
-          <div className="relative z-10 w-full max-w-[450px] mx-auto lg:ml-0 lg:-ml-8 xl:-ml-24 flex flex-col gap-4 lg:gap-5 px-2 lg:px-0 order-2">
+          <div className="relative z-10 w-full max-w-[500px] mx-auto lg:ml-0 lg:-ml-8 xl:-ml-24 flex flex-col gap-4 lg:gap-5 px-2 lg:px-0 order-2">
             {rightColumnCards.map((card, index) => (
               <motion.div
                 key={card.id}
@@ -153,17 +153,17 @@ export default function PhilosophySection() {
                 }}
               >
                 <div
-                  className={`bg-white rounded-[24px] p-3.5 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4] relative ${card.alignClass}`}
+                  className={`bg-white rounded-[24px]  p-3.5 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4] relative ${card.alignClass}`}
                 >
                   <div className="w-14 h-14 shrink-0 bg-[#F4F0FF] rounded-2xl flex items-center justify-center text-[#9564F4]">
                     <BedIcon />
                   </div>
 
                   <div className="flex-1 mt-1 sm:mt-0 pr-6">
-                    <h4 className="text-[19px] font-readex-pro font-normal text-black mb-1">
+                    <h4 className="text-[21px] font-readex-pro font-normal text-black mb-1">
                       {card.title}
                     </h4>
-                    <p className="text-[14px] font-mulish text-black leading-relaxed">
+                    <p className="text-[14px] font-mulish text-black leading-[1.2]">
                       {card.desc}
                     </p>
                   </div>
@@ -215,17 +215,17 @@ export default function PhilosophySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
-          className="hidden lg:flex absolute bottom-36 xl:bottom-44 left-[28%] xl:left-[30%] -translate-x-1/2 w-full max-w-[420px] z-30 px-2 lg:px-0"
+          className="hidden lg:flex absolute bottom-36 xl:bottom-44 left-[28%] xl:left-[32%] -translate-x-1/2 w-full max-w-[500px] z-30 px-2 lg:px-0"
         >
-          <div className="bg-white rounded-[24px] p-6 w-full flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4]">
+          <div className="bg-white rounded-[24px] p-6 w-full  flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4]">
             <div className="w-14 h-14 shrink-0 bg-[#F4F0FF] rounded-2xl flex items-center justify-center text-[#9564F4]">
               <BedIcon />
             </div>
             <div className="flex-1 mt-1 sm:mt-0">
-              <h4 className="text-[19px] font-normal font-readex-pro text-black mb-1">
+              <h4 className="text-[21px] font-normal font-readex-pro text-black mb-1">
                 Cadence
               </h4>
-              <p className="text-[14px] font-mulish text-black leading-relaxed">
+              <p className="text-[14px] font-mulish text-black leading-1.2">
                 We move with rhythm and intention.
               </p>
             </div>

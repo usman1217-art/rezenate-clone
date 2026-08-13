@@ -115,7 +115,7 @@ export default function ConversationCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="mt-3 md:mt-2 font-outfit text-sm leading-[1.1] sm:text-base md:text-lg text-black"
+          className="mt-3 md:mt-4 font-outfit text-sm leading-[1.1] sm:text-base md:text-lg text-black"
         >
           If this resonates, let&apos;s have a conversation.
           <br />
@@ -127,7 +127,7 @@ export default function ConversationCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-          className="mt-5 md:mt-3"
+          className="mt-5 md:mt-5"
         >
           <button className="rounded-full border border-black px-6 sm:px-8 py-2 font-outfit text-sm text-black hover:bg-black hover:text-white transition-all cursor-pointer">
             Start a Private Conversation
