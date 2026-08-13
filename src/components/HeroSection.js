@@ -6,6 +6,15 @@ export default function HeroSection() {
   // Base delay synced to your LoadingScreen timeout (2.8s + small buffer for the transition)
   const INITIAL_DELAY = 3.0;
 
+  // Custom function to handle smooth scrolling
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('philosophy');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div 
       id='home'
@@ -48,7 +57,7 @@ export default function HeroSection() {
       {/* ABSTRACT GRAPHIC CONSTRAINED TO THE SCREEN BOTTOM */}
       {/* ========================================= */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1350px] px-4 z-10 pointer-events-none flex justify-center items-end">
-        <div className="w-full h-auto max-h-[35vh] md:max-h-[52vh] relative flex justify-center items-end">
+        <div className="w-full h-auto max-h-[42vh] md:max-h-[52vh] relative flex justify-center items-end">
           <img
             src="/hero-btm.svg"
             alt="Abstract purple organic shape decorations"
@@ -59,9 +68,10 @@ export default function HeroSection() {
 
       {/* ========================================= */}
       {/* TARGETED BOTTOM BLUR & FADE MASK — SVG blur centered at the lower part of the hero image */}
+      {/* Shortened + repositioned on mobile so it only softens the very bottom edge instead of washing out the graphic */}
       {/* ========================================= */}
       <svg
-        className="absolute bottom-[-310] left-1/2 -translate-x-1/2 w-[1200px] h-[186px] md:w-[1920px] md:h-[600px] z-[15] pointer-events-none"
+        className="absolute -bottom-[90px] md:-bottom-[310px] left-1/2 -translate-x-1/2 w-[1920px] h-[160px] md:h-[600px] z-[15] pointer-events-none"
         viewBox="0 0 1920 938"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +106,7 @@ export default function HeroSection() {
 
       {/* Bottom-left corner blur — softens the sharp corner of the abstract graphic */}
       <div
-        className="absolute bottom-0 left-0 w-[220px] h-[150px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
+        className="absolute bottom-0 left-0 w-[130px] h-[90px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at bottom left, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 75%)",
@@ -105,7 +115,7 @@ export default function HeroSection() {
 
       {/* Bottom-right corner blur — softens the sharp corner of the abstract graphic */}
       <div
-        className="absolute bottom-0 right-0 w-[220px] h-[150px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
+        className="absolute bottom-0 right-0 w-[130px] h-[90px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at bottom right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 75%)",
@@ -120,9 +130,10 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         // Button appears last (3.0s + 0.4s)
         transition={{ duration: 0.8, ease: "easeOut", delay: INITIAL_DELAY + 0.4 }}
-        className="absolute bottom-0 md:bottom-16 lg:bottom-7 left-1/2 -translate-x-1/2 z-40"
+        // hidden on small screens, block on medium and up
+        className="hidden md:block absolute bottom-0 md:bottom-16 lg:bottom-7 left-1/2 -translate-x-1/2 z-40"
       >
-        <Link href="#philosophy" className="pointer-events-auto block">
+        <Link href="#philosophy" onClick={handleScroll} className="pointer-events-auto block">
           <motion.div
             initial="rest"
             whileHover="hover"
@@ -148,9 +159,11 @@ export default function HeroSection() {
               className="mt-4 text-[#9564F4]"
               variants={{
                 rest: { y: 0 },
-                hover: { y: [0, 6, 0] },
+                hover: { 
+                  y: [0, 6, 0],
+                  transition: { duration: 1.1, repeat: Infinity, ease: "easeInOut" } 
+                },
               }}
-              transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
             >
               <path 
                 d="M8.66016 42.5L17.3204 27.5L-9.75728e-05 27.5L8.66016 42.5ZM10.1602 1.5C10.1602 0.671574 9.48859 3.62117e-08 8.66016 0C7.83173 -3.62117e-08 7.16016 0.671574 7.16016 1.5L8.66016 1.5L10.1602 1.5ZM8.66016 29L10.1602 29L10.1602 1.5L8.66016 1.5L7.16016 1.5L7.16016 29L8.66016 29Z" 
