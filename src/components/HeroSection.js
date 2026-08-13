@@ -58,14 +58,57 @@ export default function HeroSection() {
       </div>
 
       {/* ========================================= */}
-      {/* TARGETED BOTTOM BLUR & FADE MASK */}
+      {/* TARGETED BOTTOM BLUR & FADE MASK — SVG blur centered at the lower part of the hero image */}
       {/* ========================================= */}
-      <div 
-        className="absolute bottom-0 left-0 w-full h-[30vh] sm:h-[35vh] md:h-[50vh] z-[15] pointer-events-none backdrop-blur-[12px]"
+      <svg
+        className="absolute bottom-[-310] left-1/2 -translate-x-1/2 w-[1200px] h-[186px] md:w-[1920px] md:h-[600px] z-[15] pointer-events-none"
+        viewBox="0 0 1920 938"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_f_269_12)">
+          <rect x="-102" y="189.3" width="2097" height="559" fill="#FDFDFC" />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_269_12"
+            x="-291.3"
+            y="-1.52588e-05"
+            width="2475.6"
+            height="937.6"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="94.65"
+              result="effect1_foregroundBlur_269_12"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Bottom-left corner blur — softens the sharp corner of the abstract graphic */}
+      <div
+        className="absolute bottom-0 left-0 w-[220px] h-[150px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)',
-          maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)'
+          background:
+            "radial-gradient(ellipse at bottom left, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 75%)",
+        }}
+      />
+
+      {/* Bottom-right corner blur — softens the sharp corner of the abstract graphic */}
+      <div
+        className="absolute bottom-0 right-0 w-[220px] h-[150px] md:w-[340px] md:h-[120px] z-[16] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at bottom right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 75%)",
         }}
       />
 
@@ -79,33 +122,42 @@ export default function HeroSection() {
         transition={{ duration: 0.8, ease: "easeOut", delay: INITIAL_DELAY + 0.4 }}
         className="absolute bottom-0 md:bottom-16 lg:bottom-7 left-1/2 -translate-x-1/2 z-40"
       >
-        <Link
-          href="#philosophy"
-          className="flex items-center justify-center w-[90px] h-[90px] md:w-[100px] md:h-[90px] rounded-[45px] border border-white/100 bg-white/40 backdrop-blur-md shadow-[0_8px_30px_rgba(149,100,244,0.08)] transition-all duration-500 hover:bg-white/70 hover:-translate-y-1 group pointer-events-auto"
-        >
-          <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none">
-            <path id="text-curve" d="M 12 54 A 38 38 0 0 1 88 54" fill="none" />
-            <text className="text-[9.5px] uppercase font-outfit font-medium fill-neutral-800 tracking-[0.15em]">
-              <textPath href="#text-curve" startOffset="50%" textAnchor="middle">
-                Scroll to explore
-              </textPath>
-            </text>
-          </svg>
-
-          {/* 🌟 CUSTOM UPDATED SVG ARROW */}
-          <svg 
-            width="14" 
-            height="32" 
-            viewBox="0 0 18 43" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="mt-4 text-[#9564F4] transition-transform duration-300 group-hover:translate-y-1.5"
+        <Link href="#philosophy" className="pointer-events-auto block">
+          <motion.div
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            className="flex items-center justify-center w-[90px] h-[90px] md:w-[100px] md:h-[90px] rounded-[45px] border border-white/100 bg-white/40 backdrop-blur-md shadow-[0_8px_30px_rgba(149,100,244,0.08)] duration-500"
           >
-            <path 
-              d="M8.66016 42.5L17.3204 27.5L-9.75728e-05 27.5L8.66016 42.5ZM10.1602 1.5C10.1602 0.671574 9.48859 3.62117e-08 8.66016 0C7.83173 -3.62117e-08 7.16016 0.671574 7.16016 1.5L8.66016 1.5L10.1602 1.5ZM8.66016 29L10.1602 29L10.1602 1.5L8.66016 1.5L7.16016 1.5L7.16016 29L8.66016 29Z" 
-              fill="currentColor"
-            />
-          </svg>
+            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none">
+              <path id="text-curve" d="M 12 54 A 38 38 0 0 1 88 54" fill="none" />
+              <text className="text-[9.5px] uppercase font-outfit font-medium fill-neutral-800 tracking-[0.15em]">
+                <textPath href="#text-curve" startOffset="50%" textAnchor="middle">
+                  Scroll to explore
+                </textPath>
+              </text>
+            </svg>
+
+            {/* 🌟 CUSTOM UPDATED SVG ARROW — bounces on hover anywhere over the circle */}
+            <motion.svg 
+              width="14" 
+              height="32" 
+              viewBox="0 0 18 43" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="mt-4 text-[#9564F4]"
+              variants={{
+                rest: { y: 0 },
+                hover: { y: [0, 6, 0] },
+              }}
+              transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <path 
+                d="M8.66016 42.5L17.3204 27.5L-9.75728e-05 27.5L8.66016 42.5ZM10.1602 1.5C10.1602 0.671574 9.48859 3.62117e-08 8.66016 0C7.83173 -3.62117e-08 7.16016 0.671574 7.16016 1.5L8.66016 1.5L10.1602 1.5ZM8.66016 29L10.1602 29L10.1602 1.5L8.66016 1.5L7.16016 1.5L7.16016 29L8.66016 29Z" 
+                fill="currentColor"
+              />
+            </motion.svg>
+          </motion.div>
         </Link>
       </motion.div>
       

@@ -164,11 +164,11 @@ export default function InfluenceSection() {
         {/* MOBILE QUOTE BADGE CARD */}
         {/* ========================================= */}
         <motion.div
-          initial={{ opacity: 0, y: 50, x: "-50%" }}
+          initial={{ opacity: 0, y: "-50%", x: "-50%" }}
           whileInView={{ opacity: 1, y: "-50%", x: "-50%" }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="font-outfit block lg:hidden absolute top-1/2 left-1/2 w-[92%] max-w-[340px] p-6 rounded-[28px] z-20 overflow-hidden pointer-events-auto flex flex-col justify-center items-start text-left shadow-[0_12px_40px_rgba(149,100,244,0.15)] bg-white/15 backdrop-blur-2xl border border-white/60"
+          className="font-outfit block lg:hidden absolute top-1/2 left-1/2 w-[92%] max-w-[340px] p-6 rounded-[28px] z-20 overflow-hidden pointer-events-auto flex flex-col justify-center items-start text-left shadow-[0_12px_40px_rgba(149,100,244,0.15)] bg-transparent border border-white/60"
         >
           <div 
             className="absolute inset-0 bg-repeat bg-contain opacity-40 z-0 pointer-events-none"
@@ -186,24 +186,73 @@ export default function InfluenceSection() {
       {/* ========================================= */}
       {/* DESKTOP QUOTE CARD */}
       {/* ========================================= */}
-      <motion.div 
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-        className="hidden lg:flex absolute bottom-[25%] xl:bottom-[27%] left-[64%] xl:left-[60%] w-full max-w-[300px] p-6 md:p-5 rounded-[24px] z-20 overflow-hidden pointer-events-auto transition-all duration-300 flex-col justify-center items-start text-left shadow-[0_15px_40px_rgba(120,70,255,0.15)] bg-white/15 backdrop-blur-2xl border border-white/60"
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="hidden lg:block absolute bottom-[35%] xl:bottom-[15%] left-[64%] xl:left-[60%] w-full max-w-[300px] z-20"
       >
-        <div 
-          className="absolute inset-0 bg-repeat bg-contain opacity-[0.06] z-0 pointer-events-none"
-          style={{ backgroundImage: "url('/dots.png')" }}
-        />
+        {/* Purple glow — sits behind the card, peeking out at the lower-left */}
+        <svg
+          className="pointer-events-none absolute -bottom-15 -left-10 w-[327px] h-[212px] z-0"
+          viewBox="0 0 327 212"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_f_269_43)">
+            <ellipse cx="163.199" cy="105.7" rx="108" ry="50.5" fill="#6D00FF" fillOpacity="0.8" />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_269_43"
+              x="-0.000782013"
+              y="-4.95911e-05"
+              width="326.4"
+              height="211.4"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="27.6"
+                result="effect1_foregroundBlur_269_43"
+              />
+            </filter>
+          </defs>
+        </svg>
 
-        <p className="text-[15px] md:text-[16px] font-outfit text-[#FDFDFC] font-normal leading-[1.3] mb-1 relative z-20 tracking-wide max-w-[230px] drop-shadow-sm">
-          People buy into the leader before they buy into the vision.
-        </p>
-        <span className="text-[20px] md:text-[18px] font-outfit tracking-[0.15em] uppercase font-bold text-white/90 block relative z-20 drop-shadow-sm">
-          — JOHN C MAXWELL
-        </span>
+        {/* Inner container to capture the right lower shadow and dual-gradient styling */}
+        <div className="relative w-full p-6 md:p-5 rounded-[24px] z-10 overflow-hidden pointer-events-auto transition-all duration-300 flex flex-col justify-center items-start text-left bg-gradient-to-br from-white/25 via-[#9564F4]/15 to-white/5 backdrop-blur-xl shadow-[15px_20px_50px_rgba(120,70,255,0.3)]">
+          
+          {/* Outer Border Layer - Main White Border running from Top-Right down to Bottom-Left */}
+          <div className="absolute inset-0 p-[2px] rounded-[24px] bg-gradient-to-bl from-white via-white/100 to-transparent z-30 pointer-events-none" style={{ WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }} />
+          
+          {/* Left Border Layer - Purple Tint Gradient highlighting specifically the left side */}
+          <div className="absolute inset-0 p-[2px] rounded-[24px] bg-gradient-to-r from-[#9564F4] via-transparent to-transparent z-40 pointer-events-none" style={{ WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }} />
+
+          {/* Grain texture */}
+          <div 
+            className="absolute inset-0 bg-repeat bg-contain opacity-40 filter invert z-0 pointer-events-none mix-blend-overlay"
+            style={{ backgroundImage: "url('/dots.png')" }}
+          />
+
+          {/* Top inner sheen */}
+          <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/30 via-transparent to-transparent" />
+
+          <p className="text-[15px] md:text-[17px] font-outfit text-[#FDFDFC] font-light leading-[1.2] mb-1 relative z-20 tracking-wide max-w-[250px] drop-shadow-sm">
+            People buy into the leader before they buy into the vision.
+          </p>
+          <span className="text-[20px] md:text-[18px] font-outfit  uppercase font-semibold text-white/90 block relative z-20 drop-shadow-sm">
+            — JOHN C MAXWELL
+          </span>
+        </div>
       </motion.div>
 
     </section>

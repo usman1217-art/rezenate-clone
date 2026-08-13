@@ -168,7 +168,7 @@ export default function Navbar() {
         {/* ========================================= */}
         <div className="relative md:left-4 lg:left-20 xl:left-40 flex flex-col items-center justify-center gap-1 transition-all duration-300">
           
-          <div className="relative w-[20px] h-[20px] pointer-events-none select-none">
+          <div className="relative top-4 left-1 w-[20px] h-[20px] pointer-events-none select-none">
             <motion.svg
               className="absolute bottom-0 left-0 w-[28.35%] h-[28.35%]"
               style={{ zIndex: 10 }}
@@ -221,10 +221,10 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Rezenate"
-            width={155}
+            width={160}
             height={28}
             priority
-            className="object-contain relative left-6 bottom-3"
+            className="object-contain relative left-6 bottom-1"
           />
         </div>
 
@@ -232,7 +232,7 @@ export default function Navbar() {
         {/* EVOLVING NAV PILL CONTAINER */}
         {/* ========================================= */}
         <nav
-          className="hidden font-light items-center justify-between rounded-full px-4 lg:px-6 py-3 shadow-sm md:flex relative w-auto lg:w-[460px] evolving-pill backdrop-blur-md transition-all duration-300"
+          className="hidden font-light items-center justify-between rounded-full px-4 lg:px-6 py-3.5 shadow-sm md:flex relative w-auto lg:w-[460px] evolving-pill backdrop-blur-md transition-all duration-300"
         >
           <div
             className="absolute inset-0 bg-repeat opacity-5 rounded-full"
@@ -245,7 +245,7 @@ export default function Navbar() {
               <button
                 key={id}
                 onClick={() => scrollToSection(id, label)}
-                className={`relative z-10 flex-1 whitespace-nowrap rounded-full px-2 lg:px-3 py-1.5 text-center text-[12px] lg:text-[13px] font-medium leading-tight transition-colors group ${
+                className={`relative z-10 flex-1 cursor-pointer whitespace-nowrap rounded-full px-2 lg:px-3 py-1.5 text-center text-[12px] lg:text-[13px] font-medium leading-tight transition-colors group ${
                   isActive
                     ? "bg-[#9564F4] text-white shadow-sm"
                     : "text-gray-800 hover:text-[#9564F4]"
@@ -266,7 +266,7 @@ export default function Navbar() {
         {/* ========================================= */}
         <button
           onClick={() => scrollToSection("contact", "Contact")}
-          className="hidden md:block rounded-full relative md:right-4 lg:right-16 xl:right-30 border border-gray-800 px-4.5 py-1 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+          className="hidden md:block cursor-pointer rounded-full relative md:right-4 lg:right-16 xl:right-30 border border-gray-800 px-4.5 py-1 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
         >
           Contact us
         </button>

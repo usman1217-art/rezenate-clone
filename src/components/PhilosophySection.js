@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const BedIcon = ({ className = "w-6 h-6 text-[#9564F4]", ...props }) => (
   <svg
@@ -49,50 +49,54 @@ export default function PhilosophySection() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-      handleResize(); 
+      handleResize();
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
   const rightColumnCards = [
-    { 
-      id: '01', 
-      title: 'Meraki', 
-      desc: 'We bring heart to everything we do.', 
-      alignClass: 'lg:ml-0' 
+    {
+      id: "01",
+      title: "Meraki",
+      desc: "We bring heart to everything we do.",
+      alignClass: "lg:ml-0",
     },
-    { 
-      id: '02', 
-      title: 'Wisdom', 
-      desc: 'We make thoughtful decisions.', 
-      alignClass: 'lg:ml-20' 
+    {
+      id: "02",
+      title: "Wisdom",
+      desc: "We make thoughtful decisions.",
+      alignClass: "lg:ml-20",
     },
-    { 
-      id: '03', 
-      title: 'Rezolutionary', 
-      desc: 'We believe everyone has the power to shape what happens next.', 
-      alignClass: 'lg:-ml-16' 
+    {
+      id: "03",
+      title: "Rezolutionary",
+      desc: "We believe everyone has the power to shape what happens next.",
+      alignClass: "lg:-ml-16",
     },
-    { 
-      id: '04', 
-      title: 'Upekkha', 
-      desc: 'We meet every moment with balance.', 
-      alignClass: 'lg:ml-10' 
-    }
+    {
+      id: "04",
+      title: "Upekkha",
+      desc: "We meet every moment with balance.",
+      alignClass: "lg:ml-10",
+    },
   ];
 
   return (
-    <section id="philosophy" className="w-full bg-white pb-0 pt-8 md:pt-12 lg:pb-4 lg:pt-16 overflow-hidden font-sans">
+    <section
+      id="philosophy"
+      className="w-full bg-white pb-0 pt-8 md:pt-12 lg:pb-4 lg:pt-16 overflow-hidden font-sans"
+    >
       <div className="w-full max-w-[1240px] mx-auto px-4 md:px-8 relative">
-        
         {/* ========================================= */}
         {/* SECTION HEADER */}
         {/* ========================================= */}
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-3xl font-readex-pro font-light md:text-[42px] relative top-14 lg:text-[42px] tracking-tight text-neutral-900 leading-[1.15]">
             The Way We Work Should Reflect <br />
-            <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">the way we live.</span>
+            <span className="text-[#9564F4] italic font-tartuffo tracking-normal font-light">
+              the way we live.
+            </span>
           </h2>
         </div>
 
@@ -100,11 +104,10 @@ export default function PhilosophySection() {
         {/* MAIN COMPONENT CONTENT GRID */}
         {/* ========================================= */}
         <div className="grid grid-cols-1 relative lg:bottom-28 lg:left-[72px] lg:grid-cols-2 gap-10 lg:gap-0 items-center">
-          
           {/* LEFT COLUMN: Sphere Graphic ONLY */}
           <div className="relative flex flex-col items-center justify-center w-full order-1">
             {/* FIXED: Starts from bottom-left (x: -150, y: 150) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -150, y: 150, rotate: -180 }}
               whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -113,13 +116,17 @@ export default function PhilosophySection() {
             >
               <motion.div
                 animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="w-full h-full relative"
               >
-                <Image 
-                  src="/circle.svg" 
-                  alt="3D Purple layered circle graphic" 
-                  fill 
+                <Image
+                  src="/circle.svg"
+                  alt="3D Purple layered circle graphic"
+                  fill
                   priority
                   className="object-contain"
                 />
@@ -132,20 +139,30 @@ export default function PhilosophySection() {
             {rightColumnCards.map((card, index) => (
               <motion.div
                 key={card.id}
-                initial={{ opacity: 0, x: isDesktop ? 100 : 0, y: isDesktop ? 0 : 60 }}
+                initial={{
+                  opacity: 0,
+                  x: isDesktop ? 100 : 0,
+                  y: isDesktop ? 0 : 60,
+                }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
               >
-                <div 
-                  className={`bg-white rounded-[24px] p-3.5 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-transform duration-300 hover:-translate-y-1 relative ${card.alignClass}`}
+                <div
+                  className={`bg-white rounded-[24px] p-3.5 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4] relative ${card.alignClass}`}
                 >
                   <div className="w-14 h-14 shrink-0 bg-[#F4F0FF] rounded-2xl flex items-center justify-center text-[#9564F4]">
                     <BedIcon />
                   </div>
-                  
+
                   <div className="flex-1 mt-1 sm:mt-0 pr-6">
-                    <h4 className="text-[19px] font-readex-pro font-normal text-black mb-1">{card.title}</h4>
+                    <h4 className="text-[19px] font-readex-pro font-normal text-black mb-1">
+                      {card.title}
+                    </h4>
                     <p className="text-[14px] font-mulish text-black leading-relaxed">
                       {card.desc}
                     </p>
@@ -159,19 +176,25 @@ export default function PhilosophySection() {
             ))}
 
             {/* MOBILE ONLY CARD 05 */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: isDesktop ? 0 : rightColumnCards.length * 0.1 }}
+              transition={{
+                duration: 0.7,
+                ease: "easeOut",
+                delay: isDesktop ? 0 : rightColumnCards.length * 0.1,
+              }}
               className="block lg:hidden w-full"
             >
-              <div className="bg-white rounded-[24px] p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-transform duration-300 hover:-translate-y-1 relative">
+              <div className="bg-white rounded-[24px] p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4] relative">
                 <div className="w-14 h-14 shrink-0 bg-[#F4F0FF] rounded-2xl flex items-center justify-center text-[#9564F4]">
                   <BedIcon />
                 </div>
                 <div className="flex-1 mt-1 sm:mt-0">
-                  <h4 className="text-[19px] font-readex-pro font-semibold text-black mb-1">Cadence</h4>
+                  <h4 className="text-[19px] font-readex-pro font-normal text-black mb-1">
+                    Cadence
+                  </h4>
                   <p className=" text-[14px] font-mulish text-black leading-relaxed">
                     We move with rhythm and intention.
                   </p>
@@ -182,25 +205,26 @@ export default function PhilosophySection() {
               </div>
             </motion.div>
           </div>
-
         </div>
 
         {/* ========================================= */}
         {/* DESKTOP ONLY CARD 05 (Slides from Bottom) */}
         {/* ========================================= */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }} 
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
           className="hidden lg:flex absolute bottom-36 xl:bottom-44 left-[28%] xl:left-[30%] -translate-x-1/2 w-full max-w-[420px] z-30 px-2 lg:px-0"
         >
-          <div className="bg-white rounded-[24px] p-6 w-full flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-transform duration-300 hover:-translate-y-1">
+          <div className="bg-white rounded-[24px] p-6 w-full flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#9564F4]">
             <div className="w-14 h-14 shrink-0 bg-[#F4F0FF] rounded-2xl flex items-center justify-center text-[#9564F4]">
               <BedIcon />
             </div>
             <div className="flex-1 mt-1 sm:mt-0">
-              <h4 className="text-[19px] font-semibold font-readex-pro text-neutral-900 mb-1">Cadence</h4>
+              <h4 className="text-[19px] font-normal font-readex-pro text-black mb-1">
+                Cadence
+              </h4>
               <p className="text-[14px] font-mulish text-black leading-relaxed">
                 We move with rhythm and intention.
               </p>
@@ -210,7 +234,6 @@ export default function PhilosophySection() {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

@@ -25,6 +25,14 @@ export default function ConversationCTASection() {
           priority
           className="object-cover "
         />
+        {/* Top fade — plain white gradient overlay blends the top edge of the glow into the section's white bg */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, white 0%, rgba(255,255,255,0) 30%)",
+          }}
+        />
       </div>
 
       {/* White blur mask pasted over the bottom of the left glow, as provided */}
@@ -121,7 +129,7 @@ export default function ConversationCTASection() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
           className="mt-5 md:mt-3"
         >
-          <button className="rounded-full border border-black px-6 sm:px-8 py-2 font-outfit text-sm text-black hover:bg-black hover:text-white transition-all">
+          <button className="rounded-full border border-black px-6 sm:px-8 py-2 font-outfit text-sm text-black hover:bg-black hover:text-white transition-all cursor-pointer">
             Start a Private Conversation
           </button>
         </motion.div>
